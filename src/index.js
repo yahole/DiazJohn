@@ -29,12 +29,8 @@ function navHighlighter() {
 const glow = document.getElementById('mouse-glow');
 
 window.addEventListener('mousemove', (e) => {
-    // Offset by 500px (half of 1000px) to keep the cursor centered
-    const x = e.clientX - 500;
-    const y = e.clientY - 500;
-    
-    glow.style.setProperty('--x', `${x}px`);
-    glow.style.setProperty('--y', `${y}px`);
+  // We update the radial-gradient position directly
+  glow.style.background = `radial-gradient(600px at ${e.clientX}px ${e.clientY}px, rgba(29, 78, 216, 0.15), transparent 80%)`;
 });
 
 window.addEventListener('mousedown', () => {
