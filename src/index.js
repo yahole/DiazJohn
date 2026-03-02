@@ -29,9 +29,9 @@ function navHighlighter() {
 const glow = document.getElementById('mouse-glow');
 
 window.addEventListener('mousemove', (e) => {
-    // Offset by half the width/height (300px) to keep cursor centered
-    const x = e.clientX - 300;
-    const y = e.clientY - 300;
+    // Offset by 500px (half of 1000px) to keep the cursor centered
+    const x = e.clientX - 500;
+    const y = e.clientY - 500;
     
     glow.style.setProperty('--x', `${x}px`);
     glow.style.setProperty('--y', `${y}px`);
