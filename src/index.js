@@ -36,3 +36,13 @@ window.addEventListener('mousemove', (e) => {
     glow.style.setProperty('--x', `${x}px`);
     glow.style.setProperty('--y', `${y}px`);
 });
+
+window.addEventListener('mousedown', () => {
+    glow.style.opacity = '0.6';
+    glow.style.scale = '1.2';
+});
+
+window.addEventListener('mouseup', () => {
+    glow.style.opacity = '0.4';
+    glow.style.scale = '1';
+});
