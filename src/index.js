@@ -4,27 +4,28 @@ const sections = document.querySelectorAll("section[id]");
 window.addEventListener("scroll", navHighlighter);
 
 function navHighlighter() {
-  
-  
   let scrollY = window.pageYOffset;
-  
-  
+
   sections.forEach(current => {
     const sectionHeight = current.offsetHeight;
-    const sectionTop = current.offsetTop - 50;
+    // getBoundingClientRect().top + scrollY gives the true absolute top
+    const sectionTop = current.getBoundingClientRect().top + scrollY - 150; 
     const sectionId = current.getAttribute("id");
     
-    
-      if (
-        scrollY > sectionTop &&
-        scrollY <= sectionTop + sectionHeight
-      ){
-        document.querySelector(".nav a[href*=" + sectionId + "]").classList.add("animate-bounce");
+    // We target the specific nav link for this section
+    const navLink = document.querySelector(`.nav a[href*="${sectionId}"]`);
+
+    if (navLink) {
+      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+        navLink.classList.add("animate-bounce", "text-teal-300");
+        navLink.classList.remove("text-slate-500");
       } else {
-        document.querySelector(".nav a[href*=" + sectionId + "]").classList.remove("animate-bounce");
+        navLink.classList.remove("animate-bounce", "text-teal-300");
+        navLink.classList.add("text-slate-500");
       }
-    });
-  }
+    }
+  });
+}
 
 const glow = document.getElementById('mouse-glow');
 
