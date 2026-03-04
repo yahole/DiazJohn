@@ -1,7 +1,7 @@
 const sections = document.querySelectorAll("section[id]");
 
 
-window.addEventListener("scroll", navHighlighter);
+/* window.addEventListener("scroll", navHighlighter);
 
 function navHighlighter() {
   let scrollY = window.pageYOffset;
@@ -25,7 +25,7 @@ function navHighlighter() {
       }
     }
   });
-}
+} */
 
 const glow = document.getElementById('mouse-glow');
 
